@@ -1,0 +1,4 @@
+id_manutencao,id_sensor,data_revisao,estado,tecnico
+M-1001,SNSR-001,2026-09-15,Operacional,João Silva
+M-1002,SNSR-002,2026-10-01,Avariado,Maria Santos
+M-1003,SNSR-003,2026-10-05,Operacional,João Silva

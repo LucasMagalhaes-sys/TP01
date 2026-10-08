@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuracoes>
+    <regra>
+        <tipo_sensor>Qualidade do Ar</tipo_sensor>
+        <metrica>PM2.5</metrica>
+        <limite_maximo>50.0</limite_maximo>
+    </regra>
+    <regra>
+        <tipo_sensor>Tráfego</tipo_sensor>
+        <metrica>Veiculos_Hora</metrica>
+        <limite_maximo>1200</limite_maximo>
+    </regra>
+</configuracoes>

@@ -1,0 +1,20 @@
+[
+  {
+    "id_sensor": "SNSR-001",
+    "localizacao": "Avenida Central",
+    "tipo": "Qualidade do Ar",
+    "data_instalacao": "2023-05-12"
+  },
+  {
+    "id_sensor": "SNSR-002",
+    "localizacao": "Praça da República",
+    "tipo": "Tráfego",
+    "data_instalacao": "2024-01-20"
+  },
+  {
+    "id_sensor": "SNSR-003",
+    "localizacao": "Parque da Cidade",
+    "tipo": "Qualidade do Ar",
+    "data_instalacao": "2023-11-05"
+  }
+]
