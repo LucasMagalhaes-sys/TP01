@@ -6,6 +6,7 @@
     <extended_description/>
     <trans_version/>
     <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
     <directory>/</directory>
     <parameters>
     </parameters>
@@ -503,7 +504,7 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <filename>C:\Users\dango\OneDrive\Desktop\TP01\dados_entrada\manutencoes.csv</filename>
+    <filename>C:\Users\dango\OneDrive\Desktop\TP01-51233\data\input\manutencoes.csv</filename>
     <filename_field/>
     <rownum_field/>
     <include_filename>N</include_filename>
@@ -613,7 +614,7 @@
     <rownum_field/>
     <encoding>UTF-8</encoding>
     <file>
-      <name>C:\Users\dango\OneDrive\Desktop\TP01\dados_entrada\limites_alertas.xml</name>
+      <name>C:\Users\dango\OneDrive\Desktop\TP01\data\input\limites_alertas.xml</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -718,7 +719,7 @@
     <includeNulls>N</includeNulls>
     <rownum_field/>
     <file>
-      <name>C:\Users\dango\OneDrive\Desktop\TP01\dados_entrada\sensores_meta.json</name>
+      <name>C:\Users\dango\OneDrive\Desktop\TP01-51233\data\input\sensores_meta.json</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -823,7 +824,7 @@
     <encoding>UTF-8</encoding>
     <addtoresult>N</addtoresult>
     <file>
-      <name>C:\Users\dango\OneDrive\Desktop\TP01\dados_saida\sensores_processados</name>
+      <name>C:\Users\dango\OneDrive\Desktop\TP01\data\output\sensores_processados</name>
       <extention>json</extention>
       <append>N</append>
       <split>N</split>
@@ -1219,7 +1220,7 @@
     <encoding>UTF-8</encoding>
     <addtoresult>N</addtoresult>
     <file>
-      <name>C:\Users\dango\OneDrive\Desktop\TP01\dados_saida\resumo_estatistico</name>
+      <name>C:\Users\dango\OneDrive\Desktop\TP01\data\output\resumo_estatistico</name>
       <extention>json</extention>
       <append>N</append>
       <split>N</split>

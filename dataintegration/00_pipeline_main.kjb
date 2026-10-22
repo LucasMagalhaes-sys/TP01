@@ -4,6 +4,7 @@
   <description/>
   <extended_description/>
   <job_version/>
+  <job_status>0</job_status>
   <directory>/</directory>
   <created_user>-</created_user>
   <created_date>2026/10/15 11:44:34.262</created_date>
@@ -364,7 +365,7 @@
       <description/>
       <type>FILE_EXISTS</type>
       <attributes/>
-      <filename>C:\Users\dango\OneDrive\Desktop\TP01\dados_entrada\manutencoes.csv</filename>
+      <filename>C:\Users\dango\OneDrive\Desktop\TP01-51233\data\input\manutencoes.csv</filename>
       <parallel>N</parallel>
       <draw>Y</draw>
       <nr>0</nr>
