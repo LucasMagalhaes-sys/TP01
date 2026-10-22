@@ -14,7 +14,7 @@
 | :--- | :--- |
 | **Autor:** | **Lucas Lima Magalhães** |
 | **Número de Aluno:** | **51233** |
-| **Email:** | `lukeskywalker.lm04@gmail.com` |
+| **Email:** | `a51233@alunos.ipca.pt` |
 | **Instituição:** | Instituto Politécnico do Cávado e do Ave (IPCA) |
 | **Curso:** | Licenciatura em Engenharia de Sistemas Informáticos (LESI) |
 | **Unidade Curricular:** | Integração de Sistemas de Informação (ISI) |
