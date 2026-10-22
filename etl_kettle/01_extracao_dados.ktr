@@ -467,11 +467,6 @@
       <enabled>Y</enabled>
     </hop>
     <hop>
-      <from>Get data from XML</from>
-      <to>Stream lookup</to>
-      <enabled>Y</enabled>
-    </hop>
-    <hop>
       <from>Stream lookup</from>
       <to>Select values</to>
       <enabled>Y</enabled>
@@ -479,6 +474,21 @@
     <hop>
       <from>Select values</from>
       <to>JSON output</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Get data from XML</from>
+      <to>Stream lookup</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Select values</from>
+      <to>Group by</to>
+      <enabled>Y</enabled>
+    </hop>
+    <hop>
+      <from>Group by</from>
+      <to>JSON output - resumo</to>
       <enabled>Y</enabled>
     </hop>
   </order>
@@ -795,6 +805,92 @@
     </GUI>
   </step>
   <step>
+    <name>JSON output</name>
+    <type>JsonOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <outputValue>outputValue</outputValue>
+    <jsonBloc>data</jsonBloc>
+    <nrRowsInBloc>0</nrRowsInBloc>
+    <operation_type>writetofile</operation_type>
+    <compatibility_mode>N</compatibility_mode>
+    <encoding>UTF-8</encoding>
+    <addtoresult>N</addtoresult>
+    <file>
+      <name>C:\Users\dango\OneDrive\Desktop\TP01\dados_saida\sensores_processados</name>
+      <extention>json</extention>
+      <append>N</append>
+      <split>N</split>
+      <haspartno>N</haspartno>
+      <add_date>N</add_date>
+      <add_time>N</add_time>
+      <create_parent_folder>N</create_parent_folder>
+      <DoNotOpenNewFileInit>N</DoNotOpenNewFileInit>
+      <servlet_output>N</servlet_output>
+    </file>
+    <fields>
+      <field>
+        <name>id_manutencao</name>
+        <element>id_manutencao</element>
+      </field>
+      <field>
+        <name>id_sensor</name>
+        <element>id_sensor</element>
+      </field>
+      <field>
+        <name>data_revisao</name>
+        <element>data_revisao</element>
+      </field>
+      <field>
+        <name>estado</name>
+        <element>estado</element>
+      </field>
+      <field>
+        <name>tecnico</name>
+        <element>tecnico</element>
+      </field>
+      <field>
+        <name>localizacao</name>
+        <element>localizacao</element>
+      </field>
+      <field>
+        <name>tipo</name>
+        <element>tipo</element>
+      </field>
+      <field>
+        <name>data_instalacao</name>
+        <element>data_instalacao</element>
+      </field>
+      <field>
+        <name>formato_sensor_valido</name>
+        <element>formato_sensor_valido</element>
+      </field>
+      <field>
+        <name>limite_alerta</name>
+        <element>limite_alerta</element>
+      </field>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>672</xloc>
+      <yloc>272</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>Merge join</name>
     <type>MergeJoin</type>
     <description/>
@@ -825,6 +921,104 @@
     <GUI>
       <xloc>320</xloc>
       <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Regex evaluation</name>
+    <type>RegexEval</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <script>^SNSR-\d{3}$</script>
+    <matcher>id_sensor</matcher>
+    <resultfieldname>formato_sensor_valido</resultfieldname>
+    <usevar>N</usevar>
+    <allowcapturegroups>N</allowcapturegroups>
+    <replacefields>Y</replacefields>
+    <canoneq>N</canoneq>
+    <caseinsensitive>N</caseinsensitive>
+    <comment>N</comment>
+    <dotall>N</dotall>
+    <multiline>N</multiline>
+    <unicode>N</unicode>
+    <unix>N</unix>
+    <fields>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>464</xloc>
+      <yloc>144</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <field>
+        <name>id_manutencao</name>
+      </field>
+      <field>
+        <name>id_sensor</name>
+      </field>
+      <field>
+        <name>data_revisao</name>
+      </field>
+      <field>
+        <name>estado</name>
+      </field>
+      <field>
+        <name>tecnico</name>
+      </field>
+      <field>
+        <name>localizacao</name>
+      </field>
+      <field>
+        <name>tipo</name>
+      </field>
+      <field>
+        <name>data_instalacao</name>
+      </field>
+      <field>
+        <name>formato_sensor_valido</name>
+      </field>
+      <field>
+        <name>limite_alerta</name>
+      </field>
+      <select_unspecified>N</select_unspecified>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>576</xloc>
+      <yloc>272</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
@@ -913,46 +1107,6 @@
     </GUI>
   </step>
   <step>
-    <name>Regex evaluation</name>
-    <type>RegexEval</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name/>
-    </partitioning>
-    <script>^SNSR-\d{3}$</script>
-    <matcher>id_sensor</matcher>
-    <resultfieldname>formato_sensor_valido</resultfieldname>
-    <usevar>N</usevar>
-    <allowcapturegroups>N</allowcapturegroups>
-    <replacefields>Y</replacefields>
-    <canoneq>N</canoneq>
-    <caseinsensitive>N</caseinsensitive>
-    <comment>N</comment>
-    <dotall>N</dotall>
-    <multiline>N</multiline>
-    <unicode>N</unicode>
-    <unix>N</unix>
-    <fields>
-    </fields>
-    <attributes/>
-    <cluster_schema/>
-    <remotesteps>
-      <input>
-      </input>
-      <output>
-      </output>
-    </remotesteps>
-    <GUI>
-      <xloc>464</xloc>
-      <yloc>144</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
-  <step>
     <name>Stream lookup</name>
     <type>StreamLookup</type>
     <description/>
@@ -995,8 +1149,8 @@
     </GUI>
   </step>
   <step>
-    <name>Select values</name>
-    <type>SelectValues</type>
+    <name>Group by</name>
+    <type>GroupBy</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -1005,48 +1159,32 @@
       <method>none</method>
       <schema_name/>
     </partitioning>
-    <fields>
-      <field>
-        <name>id_manutencao</name>
-        <rename/>
-      </field>
-      <field>
-        <name>id_sensor</name>
-        <rename/>
-      </field>
-      <field>
-        <name>data_revisao</name>
-        <rename/>
-      </field>
-      <field>
-        <name>estado</name>
-        <rename/>
-      </field>
-      <field>
-        <name>tecnico</name>
-        <rename/>
-      </field>
-      <field>
-        <name>localizacao</name>
-        <rename/>
-      </field>
+    <all_rows>N</all_rows>
+    <ignore_aggregate>N</ignore_aggregate>
+    <field_ignore/>
+    <directory>%%java.io.tmpdir%%</directory>
+    <prefix>grp</prefix>
+    <add_linenr>N</add_linenr>
+    <linenr_fieldname/>
+    <give_back_row>N</give_back_row>
+    <group>
       <field>
         <name>tipo</name>
-        <rename/>
+      </field>
+    </group>
+    <fields>
+      <field>
+        <aggregate>total_sensores</aggregate>
+        <subject>id_sensor</subject>
+        <type>COUNT_ALL</type>
+        <valuefield/>
       </field>
       <field>
-        <name>data_instalacao</name>
-        <rename/>
+        <aggregate>media_limite_alerta</aggregate>
+        <subject>limite_alerta</subject>
+        <type>AVERAGE</type>
+        <valuefield/>
       </field>
-      <field>
-        <name>formato_sensor_valido</name>
-        <rename/>
-      </field>
-      <field>
-        <name>limite_alerta</name>
-        <rename/>
-      </field>
-      <select_unspecified>N</select_unspecified>
     </fields>
     <attributes/>
     <cluster_schema/>
@@ -1058,12 +1196,12 @@
     </remotesteps>
     <GUI>
       <xloc>576</xloc>
-      <yloc>272</yloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
   <step>
-    <name>JSON output</name>
+    <name>JSON output - resumo</name>
     <type>JsonOutput</type>
     <description/>
     <distribute>Y</distribute>
@@ -1081,57 +1219,29 @@
     <encoding>UTF-8</encoding>
     <addtoresult>N</addtoresult>
     <file>
-      <name>C:\Users\dango\OneDrive\Desktop\TP01\dados_saida\sensores_processados</name>
-      <extention>js</extention>
+      <name>C:\Users\dango\OneDrive\Desktop\TP01\dados_saida\resumo_estatistico</name>
+      <extention>json</extention>
       <append>N</append>
       <split>N</split>
       <haspartno>N</haspartno>
       <add_date>N</add_date>
       <add_time>N</add_time>
-      <create_parent_folder>Y</create_parent_folder>
+      <create_parent_folder>N</create_parent_folder>
       <DoNotOpenNewFileInit>N</DoNotOpenNewFileInit>
       <servlet_output>N</servlet_output>
     </file>
     <fields>
       <field>
-        <name>id_manutencao</name>
-        <element>id_manutencao</element>
-      </field>
-      <field>
-        <name>id_sensor</name>
-        <element>id_sensor</element>
-      </field>
-      <field>
-        <name>data_revisao</name>
-        <element>data_revisao</element>
-      </field>
-      <field>
-        <name>estado</name>
-        <element>estado</element>
-      </field>
-      <field>
-        <name>tecnico</name>
-        <element>tecnico</element>
-      </field>
-      <field>
-        <name>localizacao</name>
-        <element>localizacao</element>
-      </field>
-      <field>
         <name>tipo</name>
         <element>tipo</element>
       </field>
       <field>
-        <name>data_instalacao</name>
-        <element>data_instalacao</element>
+        <name>total_sensores</name>
+        <element>total_sensores</element>
       </field>
       <field>
-        <name>formato_sensor_valido</name>
-        <element>formato_sensor_valido</element>
-      </field>
-      <field>
-        <name>limite_alerta</name>
-        <element>limite_alerta</element>
+        <name>media_limite_alerta</name>
+        <element>media_limite_alerta</element>
       </field>
     </fields>
     <attributes/>
@@ -1143,8 +1253,8 @@
       </output>
     </remotesteps>
     <GUI>
-      <xloc>656</xloc>
-      <yloc>272</yloc>
+      <xloc>688</xloc>
+      <yloc>368</yloc>
       <draw>Y</draw>
     </GUI>
   </step>
